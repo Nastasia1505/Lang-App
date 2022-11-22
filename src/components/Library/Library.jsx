@@ -1,9 +1,10 @@
 import { useRef } from 'react'
-import styles from './styles.module.css'
-import App from '../../App'
+import styles from './styles.module.css';
+import { FiTrash2 } from "react-icons/fi";
 
 
-function Library({library, setLibrary}) {
+
+function Library({ library, setLibrary }) {
 
   const inputValue = useRef()
 
@@ -14,11 +15,20 @@ function Library({library, setLibrary}) {
         return response.json()
       })
       .then((response) => {
-        console.log(response)
-       setLibrary([...library, inputValue.current.value])
+        const updateLibrary = [...library, { word: response.word, translate: response.translate, learn: 0 }];
+        console.log(updateLibrary)
+        setLibrary(updateLibrary)
+        localStorage.setItem('library', JSON.stringify(updateLibrary));
       })
 
+      inputValue.current.value = ''
   }
+
+  // const deleteWord = (id) => {
+  //   // console.log(library)
+  //   const updateLibrary = library.filter((word, index) => index !== id)
+  //   localStorage.setItem('library', JSON.stringify(updateLibrary));
+  // }
 
   return (
     <div className={styles.library}>
@@ -33,6 +43,28 @@ function Library({library, setLibrary}) {
           onClick={onClick}
           className={styles.btn}
         >Enter</button>
+      </div>
+      <div className={styles.table}>
+        <div className={styles.wordTable}>
+          <ul className={styles.titileTable}>
+            <li><h3>Word</h3></li>
+            <li><h3>Translation</h3></li>
+            <li><h3>Learn</h3></li>
+          </ul>
+        </div>
+        <div >
+          {library.map((word, index) => (
+            <ul key={index} className={styles.newWords}>
+              <li>{word.word}</li>
+              <li>{word.translate}</li>
+              <li>{word.learn}</li>
+              <div className={styles.remove} >
+                <FiTrash2 />
+              </div>
+            </ul>
+
+          ))}
+        </div>
       </div>
     </div>
   );
