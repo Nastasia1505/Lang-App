@@ -1,0 +1,35 @@
+.library {
+    padding: 50px;
+    color: #362360;
+}
+
+.title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 50px;
+}
+
+.contener{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.input {
+    font-size: 1.6rem;
+    width: 300px;
+    border-radius: 15px;
+    padding: 5px 50px 5px 20px;
+    border: 1px solid #362360;
+    color: #C35E9E;
+    outline: none;
+}
+
+.btn {
+    background-color: #362360;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    border-radius: 15px;
+    font-size: 1.4rem;
+    width: 150px;
+    color: aliceblue;
+}

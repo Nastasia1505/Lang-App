@@ -1,0 +1,11 @@
+.nav{
+    display: flex;
+  justify-content: space-around;
+}
+
+a{
+  color: #362360;
+   text-decoration: none;
+   padding: 5px 30px 5px;
+   font-size: 1.6rem;
+}

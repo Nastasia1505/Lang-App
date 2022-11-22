@@ -1,0 +1,43 @@
+.home {
+    color: #362360;
+    display: flex;
+    column-count: 2;
+    text-align: center;
+    gap: 20px;
+    padding: 100px 70px 60px 110px;
+
+}
+
+
+.mainGame {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 60px 50px 60px;
+    border-radius: 10px;
+    width: 65%;
+
+    background-color: rgb(159, 189, 228);
+    text-align: center;
+
+}
+
+.mainGameText {
+    font-size: 1.6rem;
+    margin-bottom: 80px;
+}
+
+.mainBtn {
+    background-color:#362360;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    border-radius: 15px;
+    font-size: 1.4rem;
+    width: 300px;
+    color: aliceblue;
+}
+
+.achievements {
+    display: inline-block
+}
