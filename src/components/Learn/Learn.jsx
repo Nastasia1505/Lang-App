@@ -6,37 +6,38 @@ function Learn({ library }) {
 
   // useEffect(() => {
   //   speak(library[wordIndex].translate)
-  // })
-
-  console.log(library)
+  // }, [wordIndex])
   const progressBarWidth = {
-    width: `${(100 / library.slice(-10).lenght) * (wordIndex + 1)} vw`
+    width: `${(100 / library.slice(-10) * wordIndex)}vw`
   }
+
+  //Don't work progressBar 
   const speak = (word) => {
     const speakInstance = new SpeechSynthesisUtterance(word);
-    speakInstance.voice = speechSynthesis.getVoices()[51];
+    speakInstance.voice = speechSynthesis.getVoices()[3];
     speechSynthesis.speak(speakInstance)
   }
 
   return (
-    <div className={styles.contener}>
+    <>
       <div className={styles.progressBarContener}>
         <div className={styles.progressBar} style={progressBarWidth}></div>
       </div>
-      <div className={styles.learnWord}>
-        <span> {library[wordIndex].word}</span>
-        <h2>{library[wordIndex].translate} </h2>
+      <div className={styles.contener}>
+        <div className={styles.learnWord}>
+          <span> {library[wordIndex].word}</span>
+          <h2>{library[wordIndex].translate} </h2>
+        </div>
+        <button onClick={() => {
+          if (wordIndex === library.lenght - 1) {
+            setWordIndex(0)
+          } else {
+            speak(library[wordIndex + 1].translate)
+            setWordIndex(wordIndex + 1)
+          }
+        }}> Next </button>
       </div>
-      <button onClick={() => {
-        if (wordIndex === library.lenght - 1) {
-          setWordIndex(0)
-        } else {
-          console.log('click')
-          speak(library[wordIndex + 1].translate)
-          setWordIndex(wordIndex + 1)
-        }
-      }}> Next </button>
-    </div>
+    </>
   );
 }
 

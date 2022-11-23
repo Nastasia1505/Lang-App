@@ -5,9 +5,9 @@ import styles from './styles.module.css'
 function Navbar() {
   return (
     <div className= {styles.nav} >
-      <Link to ="/Learn">Learn</Link>
-      <Link to="/Games">Games</Link>
-      <Link to="/Library">Library</Link>
+      <Link to ="/learn">Learn</Link>
+      <Link to="/games">Games</Link>
+      <Link to="/library">Library</Link>
       <Link to="/">Home</Link>
 
     </div>

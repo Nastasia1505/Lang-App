@@ -2,7 +2,7 @@
     position: absolute;
     height: 12px;
     border-radius: 0px 20px 20px 0px;
-    width: 0;
+    width: 0vw;
     transition: .6s;
     background-color: #C3AED9;
     
