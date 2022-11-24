@@ -10,6 +10,7 @@ import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Learn from './components/Learn/Learn';
 import Library from './components/Library/Library';
+import Translator from './components/Translator/Translator';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/learn' element={<Learn library={library} />} />
+          <Route path='/translator' element={<Translator />} />
           <Route path='/games' element={<Games />} />
           <Route path='/games/write-it' element={<WriteIt playWords= {playWords}z/>} />
           <Route path='/library' element={<Library library={library} setLibrary={setLibrary} />} />

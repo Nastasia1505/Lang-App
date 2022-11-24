@@ -24,11 +24,10 @@ function Library({ library, setLibrary }) {
       inputValue.current.value = ''
   }
 
-  // const deleteWord = (id) => {
-  //   // console.log(library)
-  //   const updateLibrary = library.filter((word, index) => index !== id)
-  //   localStorage.setItem('library', JSON.stringify(updateLibrary));
-  // }
+  const deleteWord = (id) => {
+    setLibrary(library.filter((word, index) => index !== id))
+    localStorage.setItem('library', JSON.stringify(library.filter((word, index) => index !== id)));
+  }
 
   return (
     <div className={styles.library}>
@@ -58,7 +57,7 @@ function Library({ library, setLibrary }) {
               <li>{word.word}</li>
               <li>{word.translate}</li>
               <li>{word.learn}</li>
-              <div className={styles.remove} >
+              <div className={styles.remove} onClick={()=>deleteWord(index)}>
                 <FiTrash2 />
               </div>
             </ul>

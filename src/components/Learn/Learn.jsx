@@ -3,13 +3,11 @@ import styles from './styles.module.css'
 
 function Learn({ library }) {
   const [wordIndex, setWordIndex] = useState(0);
+  const [progress, setProgress] = useState((100 / library.length));
 
   // useEffect(() => {
   //   speak(library[wordIndex].translate)
   // }, [wordIndex])
-  const progressBarWidth = {
-    width: `${(100 / library.slice(-10) * wordIndex)}vw`
-  }
 
   //Don't work progressBar 
   const speak = (word) => {
@@ -21,21 +19,20 @@ function Learn({ library }) {
   return (
     <>
       <div className={styles.progressBarContener}>
-        <div className={styles.progressBar} style={progressBarWidth}></div>
+        <div className={styles.progressBar} style={{width:`${progress}vw`}}></div>
       </div>
       <div className={styles.contener}>
         <div className={styles.learnWord}>
           <span> {library[wordIndex].word}</span>
           <h2>{library[wordIndex].translate} </h2>
         </div>
+        {library.length - 1 !== wordIndex && <button onClick={() => {
+          setWordIndex((pre) => pre + 1)
+          setProgress(progress + (100 / library.length))
+        }}> Next </button>}
         <button onClick={() => {
-          if (wordIndex === library.lenght - 1) {
-            setWordIndex(0)
-          } else {
-            speak(library[wordIndex + 1].translate)
-            setWordIndex(wordIndex + 1)
-          }
-        }}> Next </button>
+          speak(library[wordIndex].translate)
+        }}> Speak </button>
       </div>
     </>
   );
