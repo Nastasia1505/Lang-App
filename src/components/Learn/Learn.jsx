@@ -19,20 +19,22 @@ function Learn({ library }) {
   return (
     <>
       <div className={styles.progressBarContener}>
-        <div className={styles.progressBar} style={{width:`${progress}vw`}}></div>
+        <div className={styles.progressBar} style={{ width: `${progress}vw` }}></div>
       </div>
       <div className={styles.contener}>
         <div className={styles.learnWord}>
           <span> {library[wordIndex].word}</span>
           <h2>{library[wordIndex].translate} </h2>
         </div>
-        {library.length - 1 !== wordIndex && <button onClick={() => {
-          setWordIndex((pre) => pre + 1)
-          setProgress(progress + (100 / library.length))
-        }}> Next </button>}
-        <button onClick={() => {
-          speak(library[wordIndex].translate)
-        }}> Speak </button>
+        <div className={styles.btn}>
+          {library.length - 1 !== wordIndex && <button onClick={() => {
+            setWordIndex((pre) => pre + 1)
+            setProgress(progress + (100 / library.length))
+          }}> Next </button>}
+          <button onClick={() => {
+            speak(library[wordIndex].translate)
+          }}> Speak </button>
+        </div>
       </div>
     </>
   );
